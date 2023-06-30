@@ -1,0 +1,37 @@
+<!-- <p>news-item works!</p> -->
+
+<div>
+    <div class="cardStyle" *ngFor="let item of data">
+        <div>
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                    <mat-card-title>
+                        <h1>{{item.title}}</h1>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <h3>{{item.source.name}}</h3>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <img mat-card-image [src]="item.urlToImage" height="300px" width="450px">
+                    <p>
+                        {{item.content}}
+                    </p>
+                    <h5>
+                        <strong>Author: {{item.author}}</strong>
+                    </h5>
+                    <h5>
+                        <strong>Published at: {{item.publishedAt | date:'MMM d, y, h:mm a'}}</strong>
+                    </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary"><mat-icon>thumb_up</mat-icon>Like</button>
+                    <button mat-raised-button color="primary"><mat-icon>share</mat-icon>Share</button>
+                    <a [href]="item.url" target="_blank" mat-stroked-button
+                        ><mat-icon>open_in_new</mat-icon>Read full article</a>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
